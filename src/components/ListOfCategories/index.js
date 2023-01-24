@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Category } from '../Category'
 
@@ -14,11 +14,12 @@ const Item = styled.li`
 `
 
 export const ListOfCategories = () => {
+  const [categories, setCategories] = useState(db.categories)
   console.log(db)
   return (
     <>
       <List>
-        {db.categories.map((category) => (
+        {categories.map((category) => (
           <Item key={category.id}>
             <Category {...category} />
           </Item>
